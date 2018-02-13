@@ -42,20 +42,39 @@ public class Tablas {
         }
 
     }
-        public String GetDisplay(String Username, String Password) {
+
+    public String GetDisplay(String Username, String Password) {
         ArrayList<Object> objs = new ArrayList<Object>();
         objs.addAll(Arrays.asList(Username, Password));
         ResultSet rs = sql.SELECT("Select `DisplayName`from `Examen_Mario_Login`Where `Username`=? and `Password`=? ", objs);
-        String displayname="";    
+        String displayname = "";
         try {
-                while(rs.next()){
-                    displayname= rs.getObject("DisplayName").toString();
-                
-                }
-            } catch (Exception e) {
-            }
-       return displayname;
+            while (rs.next()) {
+                displayname = rs.getObject("DisplayName").toString();
 
+            }
+        } catch (Exception e) {
+        }
+        return displayname;
+
+    }
+
+    public int Contarcolumnas(String tableName) {
+        int columnas = 0;
+        ArrayList<Object> objs = new ArrayList<Object>();
+        objs.addAll(Arrays.asList(tableName));
+        String col="";
+        ResultSet rs = sql.SELECT("Select count(COLUMN_NAME) FROM INFORMATION_SCHEMA.COLUMNS WHERE table_catalog = 'icompone_ulatina' AND table_name = ?", objs);
+        try {
+            while (rs.next()) {
+  
+              col= rs.getObject("(COLUMN_NAME)").toString();
+            }
+        } catch (Exception e) {
+            System.out.println("Error" + e);
+        }
+
+        return columnas;
     }
 
 }
