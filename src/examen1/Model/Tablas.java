@@ -79,14 +79,13 @@ public class Tablas {
         ArrayList<String> Result = new ArrayList<String>();
 
         ResultSet rs = sql.SELECT("Select COLUMN_NAME FROM information_schema.COLUMNS WHERE  TABLE_NAME = ?", objs);
-        try {
-            while (rs.next()) {
-
-                Result.add(rs.getObject("COLUMN_NAME").toString());
-            }
-        } catch (Exception e) {
-            System.out.println("Error" + e);
-        }
+     if(sql.Exists(rs)){
+         try {
+             
+         } catch (Exception e) {
+         }
+     
+     }
 
         return Result;
     }
@@ -178,6 +177,24 @@ public class Tablas {
         }
 
         return result;
+    }
+    
+    public ResultSet datosTablas(String tablename,ArrayList datos){
+       ArrayList<Object> objs = new ArrayList<Object>();
+     
+        for (int i = 0; i < datos.size(); i++) {
+            objs.addAll(Arrays.asList(datos.get(i)));
+        }
+           objs.addAll(Arrays.asList(tablename));
+        String query="Select ";
+        for (int i = 0; i <datos.size()-1; i++) {
+            query=query+" ? ,";
+            
+        }
+        query=query+" ? From ?";
+        ResultSet rs= sql.SELECT(tablename, objs);
+        
+    return rs;
     }
 
     public boolean createTable(String tablename, ArrayList columnasvariables) {

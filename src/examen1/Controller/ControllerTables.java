@@ -14,14 +14,14 @@ import examen1.View.Tables;
  */
 public class ControllerTables {
 
-    Tablas tablas;
-    Tables tables;
-public ControllerTables(){}
-    public void StartTables() {       
+    public ControllerTables() {
+    }
 
-        tables = new Tables();
-        tablas = new Tablas();
-        ManagerTables managerTables= new ManagerTables(tablas,tables);
+    public void StartTables() {
+
+        Tables tables = new Tables();
+        Tablas tablas = new Tablas();
+        ManagerTables managerTables = new ManagerTables(tablas, tables);
 
     }
 

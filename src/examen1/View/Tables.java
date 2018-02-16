@@ -5,6 +5,8 @@
  */
 package examen1.View;
 
+import examen1.Model.Tablas;
+import examen1.Model.Tableget;
 import java.util.ArrayList;
 import java.util.Arrays;
 import javax.swing.JFrame;
@@ -20,9 +22,10 @@ public class Tables extends JFrame {
 
     public Layout Principal;
     public JPanel GenericPanel = new JPanel();
-    public JTable mainTable = new JTable();
-    public JScrollPane scrollPane ;
+    public JTable mainTable;
+    public JScrollPane scrollPane;
     funciones FNC;
+    Tableget tableget = new Tableget();
 
     public Tables() {
         this.FNC = new funciones();
@@ -30,15 +33,15 @@ public class Tables extends JFrame {
         setTitle("Tables");
         setLayout(Principal.getLayOut());
         setPreferredSize(Principal.setComponentDimension());
-        setResizable(false);        
+
         initComponents();
 
     }
 
     public void initComponents() {
-        Layout nsPanel = new Layout(300, 300, 4);
-        GenericPanel.setLayout(nsPanel.getLayOut());
-        GenericPanel.setSize(nsPanel.setComponentDimension());
+
+        Layout GenericnsPanel = new Layout(600, 600, 4);
+        GenericPanel.setSize(GenericnsPanel.setComponentDimension());
         setVisible(true);
         add(GenericPanel);
         pack();

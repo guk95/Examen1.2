@@ -31,7 +31,7 @@ public class ManagerForMainFrame implements ActionListener {
     User user = new User();
     ChatBoxView boxView;
     Tablas tablas = new Tablas();
-    Tableget tableget;
+    Tableget tableget = new Tableget();
 
     public ManagerForMainFrame() {
 
@@ -62,6 +62,7 @@ public class ManagerForMainFrame implements ActionListener {
         }
         if (mainFrame.abrirtabla == evento.getSource()) {
             tableget.setTablename(mainFrame.tablas.getSelectedItem().toString());
+
             ControllerTables controllerTables = new ControllerTables();
             controllerTables.StartTables();
         }
