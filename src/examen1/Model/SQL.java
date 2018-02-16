@@ -81,6 +81,7 @@ public final class SQL extends funciones {
         PreparedStatement ps;
         try {
             ps = this.connection.prepareStatement(preparedQuery);
+            
 
             Iterator it = objs.iterator();
             int poc = 1;
@@ -93,7 +94,7 @@ public final class SQL extends funciones {
                 }
                 poc++;
             }
-
+String ps1=ps.toString();
             ps.executeUpdate();
             ps.close();
             return true;

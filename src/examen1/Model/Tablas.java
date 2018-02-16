@@ -12,17 +12,14 @@ public class Tablas {
         this.sql = new SQL();
     }
 
-    public boolean UpdateAnyTable(String tableName, ArrayList Columnas, ArrayList NewData) {
-
-        return true;
-    }
+   
 
     public boolean CreateUser(String Name, String DisplayName, String PassWord) {
         ArrayList<Object> objs = new ArrayList<>();
         objs.addAll(Arrays.asList(Name, DisplayName, PassWord));
 
-        boolean result = sql.exec("INSERT INTO `Examen_Mario_Login` "
-                + "(`Username`,`Password`,`DisplayName` ) "
+        boolean result = sql.exec("INSERT INTO `Cesar_login1` "
+                + "(`nombre`,`password`,`nombreMostrar` ) "
                 + "VALUES (?, ?, ?)", objs);
         if (result) {
             return true;
@@ -63,18 +60,45 @@ public class Tablas {
         int columnas = 0;
         ArrayList<Object> objs = new ArrayList<Object>();
         objs.addAll(Arrays.asList(tableName));
-        String col="";
+        String col = "";
         ResultSet rs = sql.SELECT("Select count(COLUMN_NAME) FROM INFORMATION_SCHEMA.COLUMNS WHERE table_catalog = 'icompone_ulatina' AND table_name = ?", objs);
         try {
             while (rs.next()) {
-  
-              col= rs.getObject("(COLUMN_NAME)").toString();
+
+                col = rs.getObject("(COLUMN_NAME)").toString();
             }
         } catch (Exception e) {
             System.out.println("Error" + e);
         }
 
         return columnas;
+    }
+
+    public boolean createTable(String tablename, ArrayList columnasvariables) {
+
+        ArrayList<Object> objs = new ArrayList<Object>();
+        objs.addAll(Arrays.asList(tablename));
+        for (int i = 0; i < columnasvariables.size(); i++) {
+            objs.addAll(Arrays.asList(columnasvariables.get(i)));
+        }
+
+        String query = "CREATE TABLE "+"`"+"?"+"` (";
+        for (int i = 0; i < (columnasvariables.size() / 3)-1; i++) {
+            query = query + "`"+" ? "+"`"+"  ? (?)  NOT NULL,";
+        }
+        query = query+"`"+" ? "+"`"+"   ? (?)  NOT NULL);";
+        try {
+            sql.exec(query, objs);
+        } catch (Exception e) {
+            System.out.println("error"+e);
+        }
+
+        return true;
+    }
+    
+     public boolean UpdateAnyTable(String tableName, ArrayList Columnas, ArrayList NewData) {
+
+        return true;
     }
 
 }
