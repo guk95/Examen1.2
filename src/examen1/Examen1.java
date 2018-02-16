@@ -10,6 +10,7 @@ import examen1.Model.ChatBox;
 import examen1.Model.Tablas;
 import examen1.Model.User;
 import examen1.View.ChatBoxView;
+import examen1.View.Tables;
 import java.util.ArrayList;
 
 /**
@@ -25,15 +26,16 @@ public class Examen1 {
 
         Controller controller= new Controller();
         controller.Start();
-//        Tablas tablas = new Tablas();
-//        ArrayList arraylist = new ArrayList();
-//        arraylist.add("MarioINT");
-//        arraylist.add("INT");
-//        arraylist.add("11");
-//        arraylist.add("Mariovar");
-//        arraylist.add("VARCHAR");
-//        arraylist.add("250");
-//        tablas.createTable("Pruebamario", arraylist);
+//        Tables tablas = new Tables();
+////        ArrayList arraylist = new ArrayList();
+////        arraylist.add("MarioINT");
+////        arraylist.add("INT");
+////        arraylist.add("11");
+////        arraylist.add("Mariovar");
+////        arraylist.add("VARCHAR");
+////        arraylist.add("250");
+////        tablas.createTable("Pruebamario1", arraylist);  
+//tablas.setVisible(true);
 
     }
 

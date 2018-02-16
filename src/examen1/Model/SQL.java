@@ -81,7 +81,6 @@ public final class SQL extends funciones {
         PreparedStatement ps;
         try {
             ps = this.connection.prepareStatement(preparedQuery);
-            
 
             Iterator it = objs.iterator();
             int poc = 1;
@@ -91,10 +90,41 @@ public final class SQL extends funciones {
                     ps.setInt(poc, Integer.parseInt(element.toString()));
                 } else {
                     ps.setString(poc, element.toString());
+
                 }
                 poc++;
             }
-String ps1=ps.toString();
+            String ps1=ps.toString();
+            ps.executeUpdate();
+            ps.close();
+            return true;
+
+        } catch (SQLException | NumberFormatException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+            return false;
+        }
+    }
+
+    public boolean execfortables(String preparedQuery, ArrayList<Object> objs) {
+        PreparedStatement ps;
+        try {
+            ps = this.connection.prepareStatement(preparedQuery);
+
+            Iterator it = objs.iterator();
+            int poc = 1;
+            while (it.hasNext()) {
+                Object element = it.next();
+                if (this.isNumeric(element)) {
+                    ps.setInt(poc, Integer.parseInt(element.toString()));
+                } else {
+                    ps.setString(poc, element.toString());
+                    String ps1 = ps.toString();
+                    ps1 = ps1.replace("\'", "");
+                    ps.setString(poc, ps1);
+                }
+                poc++;
+            }
+
             ps.executeUpdate();
             ps.close();
             return true;

@@ -12,35 +12,36 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import examen1.Model.funciones;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JComboBox;
 
 public class Tables extends JFrame {
 
     public Layout Principal;
     public JPanel GenericPanel = new JPanel();
     public JTable mainTable = new JTable();
+    public JScrollPane scrollPane ;
     funciones FNC;
 
     public Tables() {
         this.FNC = new funciones();
-        this.Principal = new Layout(400, 450, 4);
-        setTitle("ChatBox");
+        this.Principal = new Layout(1000, 1000, 4);
+        setTitle("Tables");
         setLayout(Principal.getLayOut());
         setPreferredSize(Principal.setComponentDimension());
-        setResizable(false);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setResizable(false);        
         initComponents();
 
     }
 
     public void initComponents() {
         Layout nsPanel = new Layout(300, 300, 4);
-        ArrayList<String> cols = new ArrayList<>(Arrays.asList("idusuario", "Nombre", "Password"));
-        JFrame nn = new JFrame();
-        nn.setSize(nsPanel.setComponentDimension());
-        JTable table = FNC.createTable(cols);
-        JScrollPane scrollPane = new JScrollPane(table);
-        nn.add(scrollPane);
-        nn.setVisible(true);
+        GenericPanel.setLayout(nsPanel.getLayOut());
+        GenericPanel.setSize(nsPanel.setComponentDimension());
+        setVisible(true);
+        add(GenericPanel);
+        pack();
 
     }
 
