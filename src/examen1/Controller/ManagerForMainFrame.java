@@ -47,7 +47,7 @@ public class ManagerForMainFrame implements ActionListener {
             controllerForChatBox.StartControllerForChatBox();
         }
         if (mainFrame.verTablas == evento.getSource()) {
-        controllerllenarCombobox();
+            controllerllenarCombobox();
             mainFrame.tablas.setVisible(true);
             mainFrame.abrirtabla.setVisible(true);
         }
@@ -68,7 +68,7 @@ public class ManagerForMainFrame implements ActionListener {
     public void controllerllenarCombobox() {
         Tablas tablas = new Tablas();
         ArrayList asd = new ArrayList();
-        asd=tablas.nombresTablas();
+        asd = tablas.nombresTablas();
         for (int i = 0; i < asd.size(); i++) {
             mainFrame.tablas.addItem(asd.get(i));
         }

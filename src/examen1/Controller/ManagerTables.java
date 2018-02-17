@@ -10,6 +10,7 @@ import examen1.Model.Tableget;
 import examen1.View.Tables;
 import examen1.Model.funciones;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import javax.swing.JScrollPane;
 
 /**
@@ -32,14 +33,17 @@ public class ManagerTables {
     }
 
     public void controllerTable() {
-        tables.mainTable = fnc.createTable(tablas.Nombrescolumnas(tableget.getTablename()));
+        ArrayList nombrecolumnas = new ArrayList();
+        nombrecolumnas = tablas.Nombrescolumnas(tableget.getTablename());
+
+        tables.mainTable = fnc.createTable(nombrecolumnas);
         tables.scrollPane = new JScrollPane(tables.mainTable);
 
-        ResultSet rs = tablas.datosTablas(tableget.getTablename(), tablas.Nombrescolumnas(tableget.getTablename()));
+        ResultSet rs = tablas.datosTablas(tableget.getTablename(), nombrecolumnas);
         try {
             while (rs.next()) {
 
-                for (int i = 0; i < tablas.Nombrescolumnas(tableget.getTablename()).size(); i++) {
+                for (int i = 0; i < nombrecolumnas.size(); i++) {
                     Object[] result = {
                         rs.getObject(tablas.Nombrescolumnas(tableget.getTablename()).get(i).toString())
                     };

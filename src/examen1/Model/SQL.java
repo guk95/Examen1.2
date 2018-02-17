@@ -147,7 +147,6 @@ public final class SQL extends funciones {
         PreparedStatement ps;
         try {
             ps = this.connection.prepareStatement(preparedQuery);
-
             Iterator it = objs.iterator();
             int poc = 1;
             while (it.hasNext()) {

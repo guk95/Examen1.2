@@ -69,17 +69,14 @@ public class Tablas {
     }
 
     public ResultSet datosTablas(String tablename, ArrayList datos) {
-        ArrayList<Object> objs = new ArrayList<Object>();
-        for (int i = 0; i < datos.size(); i++) {
-            objs.addAll(Arrays.asList(datos.get(i)));
-        }
+        ArrayList<Object> objs = new ArrayList<Object>();      
         objs.addAll(Arrays.asList(tablename));
         String query = "Select ";
         for (int i = 0; i < datos.size() - 1; i++) {
-            query = query + " ? ,";
+            query = query +datos.get(i).toString()+ " ,  ";
 
         }
-        query = query + " ? From ?";
+        query = query + datos.get(datos.size()-1).toString()+" From ?";
         ResultSet rs = LoginModel.sql.SELECT(query, objs);
 
         return rs;
