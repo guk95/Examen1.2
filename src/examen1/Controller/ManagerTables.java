@@ -40,17 +40,21 @@ public class ManagerTables {
         tables.scrollPane = new JScrollPane(tables.mainTable);
 
         ResultSet rs = tablas.datosTablas(tableget.getTablename(), nombrecolumnas);
+          Object[] objects = new Object[] { 
+                };
+          
         try {
             while (rs.next()) {
-
+                    ArrayList result = new ArrayList();
                 for (int i = 0; i < nombrecolumnas.size(); i++) {
-                    Object[] result = {
-                        rs.getObject(tablas.Nombrescolumnas(tableget.getTablename()).get(i).toString())
-                    };
-
+                   
+                        result.add(rs.getObject(nombrecolumnas.get(i).toString()));
+                    
                 }
+             objects=result.toArray();                
+              
+                 fnc.addrow(tables.mainTable, objects);
 
-//                fnc.addrow(tables.mainTable, result);
             }
         } catch (Exception e) {
         }

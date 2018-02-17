@@ -5,9 +5,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Tablas {
-
-
-
     public Tablas() {
    
     }  
@@ -29,7 +26,6 @@ public class Tablas {
 
         return columnas;
     }
-
     public ArrayList Nombrescolumnas(String tableName) {
         int columnas = 0;
         ArrayList<Object> objs = new ArrayList<Object>();
@@ -50,7 +46,6 @@ public class Tablas {
 
         return Result;
     }
-
     public ArrayList nombresTablas() {
         ArrayList<String> result = new ArrayList<String>();
         ResultSet rs = LoginModel.sql.SELECT("Select TABLE_NAME FROM information_schema.COLUMNS  "
@@ -67,21 +62,18 @@ public class Tablas {
 
         return result;
     }
-
     public ResultSet datosTablas(String tablename, ArrayList datos) {
-        ArrayList<Object> objs = new ArrayList<Object>();      
-        objs.addAll(Arrays.asList(tablename));
+        ArrayList<Object> objs = new ArrayList<Object>();   
         String query = "Select ";
         for (int i = 0; i < datos.size() - 1; i++) {
             query = query +datos.get(i).toString()+ " ,  ";
 
         }
-        query = query + datos.get(datos.size()-1).toString()+" From ?";
+        query = query + datos.get(datos.size()-1).toString()+" From "+tablename;
         ResultSet rs = LoginModel.sql.SELECT(query, objs);
 
         return rs;
     }
-
     public boolean createTable(String tablename, ArrayList columnasvariables) {
 
         ArrayList<Object> objs = new ArrayList<Object>();
@@ -103,7 +95,6 @@ public class Tablas {
 
         return true;
     }
-
     public boolean UpdateAnyTable(String tableName, String columnaChange, String New, String Columnawhere, String Old) {
 
         ArrayList<Object> objs = new ArrayList<Object>();
