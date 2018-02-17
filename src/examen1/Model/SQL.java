@@ -6,11 +6,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashMap;
+
 import java.util.Iterator;
 import java.util.Properties;
 import javax.swing.JOptionPane;
-import examen1.Model.funciones;
+
 
 public final class SQL extends funciones {
 

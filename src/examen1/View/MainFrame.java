@@ -6,26 +6,13 @@
 package examen1.View;
 
 import java.awt.Color;
-import java.awt.Rectangle;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
-import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.plaf.basic.BasicSplitPaneUI;
-import javax.swing.JTextArea;
+
+
 
 /**
  *
@@ -99,12 +86,6 @@ public class MainFrame extends JFrame {
         add(GenericPanel);
         pack();
         setVisible(true);
-//            Object[][] obj1
-//                = {
-//                    {Menu, 160, 600,4},
-//                    {GenericPanel, 400, 600,4}
-//                };
-//       nsPanel.setRow(obj1);
 
     }
     

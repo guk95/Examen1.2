@@ -5,11 +5,10 @@
  */
 package examen1.Model;
 
-import java.sql.ResultSet;
+
 import java.util.ArrayList;
 import java.sql.ResultSet;
-import java.sql.Types;
-import java.text.ParseException;
+
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
@@ -23,7 +22,7 @@ public class ChatBox extends Thread {
     SQL sql;
 
     public ChatBox() {
-        this.sql = new SQL();
+    
 
     }
 
@@ -58,7 +57,7 @@ public class ChatBox extends Thread {
      */
     public ResultSet readDB() {
         ArrayList<Object> objs = new ArrayList<>();
-        ResultSet rs = sql.SELECT("Select `Displayname`,`Message`,`Date`"
+        ResultSet rs = LoginModel.sql.SELECT("Select `Displayname`,`Message`,`Date`"
                 + " From `ChatBox` group by `IdMessage` desc limit 10; ", objs);
         return rs;
     }
@@ -74,7 +73,7 @@ public class ChatBox extends Thread {
         objs.addAll(Arrays.asList(Displayname, Message, getDate()));
 
         try {
-            boolean result = sql.exec("INSERT INTO `ChatBox` "
+            boolean result = LoginModel.sql.exec("INSERT INTO `ChatBox` "
                     + "(`Displayname`, `Message`,`Date` ) "
                     + "VALUES (?, ?, CAST(? AS DATETIME))", objs);
             return true;

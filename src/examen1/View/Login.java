@@ -43,8 +43,8 @@ public class Login extends JFrame {
 
         Layout nsPanel = new Layout(300, 300, 4);
         Nombre.setBounds(nsPanel.getRectangle(140, 30));
-        Nombre.setText("Username");
-        Password.setText("Password");
+//        Nombre.setText("Username");
+//        Password.setText("Password");
         Password.setBounds(nsPanel.getRectangle(140, 30));
         Loguear.setBounds(nsPanel.getRectangle(140, 30));
         Loguear.setText("LogIn");

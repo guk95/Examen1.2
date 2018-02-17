@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
+
 
 public class ManagerForChatBox implements ActionListener {
 

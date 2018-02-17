@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package examen1.Controller;
-
 import examen1.View.MainFrame;
 import examen1.Model.ChatBox;
 
@@ -14,8 +13,7 @@ import examen1.Model.ChatBox;
  */
 public class ControllerForMainFrame {
 
-    MainFrame mainFrame;
-    ChatBox chatbox;
+  
 
     public ControllerForMainFrame() {
 

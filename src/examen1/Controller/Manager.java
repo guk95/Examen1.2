@@ -5,17 +5,12 @@
  */
 package examen1.Controller;
 
-import examen1.Model.ChatBox;
+import examen1.Model.LoginModel;
 import examen1.Model.Tablas;
-import examen1.View.ChatBoxView;
 import java.awt.event.ActionListener;
 import examen1.Model.User;
 import examen1.View.Login;
 import java.awt.event.ActionEvent;
-import java.sql.ResultSet;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.event.AncestorListener;
 import examen1.View.MainFrame;
 import javax.swing.JOptionPane;
 
@@ -26,25 +21,23 @@ import javax.swing.JOptionPane;
 public class Manager implements ActionListener {
 
     Login login;
-    Tablas tablas;
+    LoginModel loginModel;
     MainFrame mainFrame;
     User user = new User();
 
     public Manager() {
     }
 
-    public Manager(Login login, Tablas tablas) {
+    public Manager(Login login, LoginModel loginModel) {
         this.login = login;
-        this.tablas = tablas;
+        this.loginModel = loginModel;
         this.login.Loguear.addActionListener(this);
         this.login.Registrar.addActionListener(this);
 
     }
 
     public void actionPerformed(ActionEvent evento) {
-//        if (boxView.send_Message == evento.getSource()) {
-//            ControllersendMessage();
-//        }
+
         if (login.Loguear == evento.getSource()) {
             if (ControllerLogIn()) {
                 ControllerForMainFrame cfmf = new ControllerForMainFrame();
@@ -64,8 +57,8 @@ public class Manager implements ActionListener {
     }
 
     public boolean ControllerLogIn() {
-        if (tablas.Login(login.Nombre.getText(), login.Password.getText())) {
-            user.setDisplayname(tablas.GetDisplay(login.Nombre.getText(),login.Password.getText()));
+        if (loginModel.Login(login.Nombre.getText(), login.Password.getText())) {
+            user.setDisplayname(loginModel.GetDisplay(login.Nombre.getText(), login.Password.getText()));
             return true;
         } else {
 
@@ -76,7 +69,7 @@ public class Manager implements ActionListener {
 
     public void ControllerRegister() {
 
-        boolean result = tablas.CreateUser(login.Username.getText(), login.Passwordnew.getText(), login.Displayname.getText());
+        boolean result = loginModel.CreateUser(login.Username.getText(), login.Passwordnew.getText(), login.Displayname.getText());
         if (result) {
             JOptionPane.showMessageDialog(null, "Usuario Creado");
         } else {
