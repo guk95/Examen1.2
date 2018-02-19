@@ -36,6 +36,7 @@ public class ManagerForMainFrame implements ActionListener {
         this.mainFrame.verTablas.addActionListener(this);
         this.mainFrame.abrirtabla.addActionListener(this);
         this.mainFrame.editarTablas.addActionListener(this);
+        this.mainFrame.crearTablas.addActionListener(this);
 
     }
 
@@ -61,6 +62,11 @@ public class ManagerForMainFrame implements ActionListener {
             controllerTables.StartTables();
         }
         if (mainFrame.crearTablas == evento.getSource()) {
+            Tableget tableget = new Tableget();
+            tableget.setTablename(mainFrame.nombretable.getText());
+            tableget.setNumberofcolumns(Integer.parseInt(mainFrame.numerodecolumnastext.getText()));
+            Controllerforcreatetable controllerforcreatetable = new Controllerforcreatetable();
+            controllerforcreatetable.startcreatable();
             mainFrame.editarTablas.setVisible(false);
             mainFrame.tablas.setVisible(false);
             mainFrame.abrirtabla.setVisible(false);
@@ -78,7 +84,7 @@ public class ManagerForMainFrame implements ActionListener {
     public void controllerllenarCombobox() {
         Tablas tablas = new Tablas();
         ArrayList nombretablas = new ArrayList();
-        nombretablas= tablas.nombresTablas();
+        nombretablas = tablas.nombresTablas();
         for (int i = 0; i < nombretablas.size(); i++) {
             mainFrame.tablas.addItem(nombretablas.get(i));
         }

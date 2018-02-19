@@ -12,6 +12,7 @@ package examen1.Model;
 public class Tableget {
 
     public static String tablename;
+    public static int numberofcolumns;
 
     public Tableget() {
     }
@@ -26,6 +27,14 @@ public class Tableget {
 
     public static void setTablename(String tablename) {
         Tableget.tablename = tablename;
+    }
+
+    public static int getNumberofcolumns() {
+        return numberofcolumns;
+    }
+
+    public static void setNumberofcolumns(int numberofcolumns) {
+        Tableget.numberofcolumns = numberofcolumns;
     }
 
 }

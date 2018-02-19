@@ -21,32 +21,31 @@ import javax.swing.JTextField;
  * @author Mario
  */
 public class Createtable extends JFrame {
-
+    
     public Layout layout;
     public Layout Principal;
     public JPanel GenericPanel = new JPanel();
-    JTextField[] fields = new JTextField[15];
-    JComboBox[] comboBoxs = new JComboBox[15];
-    JLabel columnas = new JLabel();
-    JLabel tipodato = new JLabel();
-    JButton creartabla = new JButton();
-
+    public JTextField[] fields = new JTextField[15];
+    public JComboBox[] comboBoxs = new JComboBox[15];
+    public JLabel columnas = new JLabel();
+    public JLabel tipodato = new JLabel();
+    public JButton creartabla = new JButton();
+    
     public Createtable() {
-
+        
         this.layout = new Layout(1200, 1200, 4);
         setTitle("Examen");
         setLayout(layout.getLayOut());
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setPreferredSize(layout.setComponentDimension());
         setResizable(false);
         initComponents();
     }
-
+    
     private void initComponents() {
         String[] datos = {
             "INT", "VARCHAR", "DATETIME"
         };
-
+        
         Layout generipanel = new Layout(1200, 1200, 25);
         GenericPanel.setLayout(generipanel.getLayOut());
         GenericPanel.setSize(generipanel.setComponentDimension());
@@ -66,6 +65,8 @@ public class Createtable extends JFrame {
                         {comboBoxs[i], 160, 30, 4}
                     };
             generipanel.setRow(obj3);
+            fields[i].setVisible(false);
+            comboBoxs[i].setVisible(false);
             GenericPanel.add(fields[i]);
             GenericPanel.add(comboBoxs[i]);
         }
@@ -75,7 +76,7 @@ public class Createtable extends JFrame {
         add(GenericPanel);
         pack();
         setVisible(true);
-
+        
     }
-
+    
 }

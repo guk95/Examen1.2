@@ -8,15 +8,16 @@ package examen1.Controller;
 import examen1.Model.Tablas;
 import examen1.View.Createtable;
 
-
 public class Controllerforcreatetable {
-    public Controllerforcreatetable(){}
-    
-    public void startcreatable(){
-        Tablas tablas = new Tablas();
-        Createtable createtable= new Createtable();
-        
-    
+
+    public Controllerforcreatetable() {
     }
-    
+
+    public void startcreatable() {
+        Tablas tablas = new Tablas();
+        Createtable createtable = new Createtable();
+        ManagerForCreatetable managerForCreatetable = new ManagerForCreatetable(tablas, createtable);
+
+    }
+
 }

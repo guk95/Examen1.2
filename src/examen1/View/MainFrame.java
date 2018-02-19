@@ -11,6 +11,7 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 /**
  *
@@ -30,6 +31,10 @@ public class MainFrame extends JFrame {
     public JButton editarTablas = new JButton();
     public JComboBox tablas = new JComboBox();
     public JButton abrirtabla = new JButton();
+    public JLabel nombretable = new JLabel();
+    public JTextField nombretabletext = new JTextField();
+    public JLabel numerodecolumnas = new JLabel();
+    public JTextField numerodecolumnastext = new JTextField();
 
     public MainFrame() {
 
@@ -56,7 +61,7 @@ public class MainFrame extends JFrame {
         Layout generipanel = new Layout(600, 600, 25);
         Menu.setLayout(nsPanel.getLayOut());
         Menu.setSize(nsPanel.setComponentDimension());
-        Menu.setBackground(new Color(48, 44, 43));
+        Menu.setBackground(Color.ORANGE);
         GenericPanel.setLayout(generipanel.getLayOut());
         GenericPanel.setSize(generipanel.setComponentDimension());
         Clock.setBounds(generipanel.getRectangle(140, 30));
@@ -72,12 +77,22 @@ public class MainFrame extends JFrame {
         crearTablas.setBounds(nsPanel.getRectangle(140, 30));
         editarTablas.setBounds(generipanel.getRectangle(140, 30));
         editarTablas.setText("Editar Tabla");
+        nombretable.setBounds(nsPanel.getRectangle(140, 30));
+        nombretable.setText("Nombre de la tabla");
+        nombretabletext.setBounds(nsPanel.getRectangle(140, 30));
+        numerodecolumnas.setBounds(nsPanel.getRectangle(140, 30));
+        numerodecolumnas.setText("Numero de columnas");
+        numerodecolumnastext.setBounds(nsPanel.getRectangle(140, 30));
         editarTablas.setVisible(false);
         tablas.setVisible(false);
         abrirtabla.setVisible(false);
         Menu.add(verTablas);
         Menu.add(ChatBox);
         Menu.add(crearTablas);
+        Menu.add(numerodecolumnastext);
+        Menu.add(nombretable);
+        Menu.add(nombretabletext);
+        Menu.add(numerodecolumnas);
         GenericPanel.add(Clock);
         GenericPanel.add(tablas);
         GenericPanel.add(abrirtabla);
