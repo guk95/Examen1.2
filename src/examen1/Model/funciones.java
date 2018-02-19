@@ -5,10 +5,15 @@
  */
 package examen1.Model;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.xml.bind.DatatypeConverter;
 
 /**
  *
@@ -61,4 +66,20 @@ public class funciones
         JTable table = new JTable(new DefaultTableModel(VROWS, VCOLS));
         return table;
     }    
+    
+    
+        public String MD5(String dat) 
+    {
+        MessageDigest md;
+        try {
+            md = MessageDigest.getInstance("MD5");
+            md.update(dat.getBytes());
+           byte[] digest = md.digest();
+           String md5 = DatatypeConverter.printHexBinary(digest).toUpperCase();
+           return md5;
+        } catch (NoSuchAlgorithmException ex) {
+            Logger.getLogger(funciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
 }

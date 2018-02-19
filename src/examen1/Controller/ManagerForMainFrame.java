@@ -67,7 +67,7 @@ public class ManagerForMainFrame implements ActionListener {
 
             if (Integer.parseInt(mainFrame.numerodecolumnastext.getText()) > 15 ||
           mainFrame.nombretabletext.getText().compareTo("")==0) {
-                JOptionPane.showMessageDialog(null, "Medio pereza y solo puse 15 espacios o escriba el nombre de la tabla ");
+                JOptionPane.showMessageDialog(null, "Me dio pereza y solo puse 15 espacios o escriba el nombre de la tabla ");
 
             } else {
                 tableget.setTablename(mainFrame.nombretabletext.getText());

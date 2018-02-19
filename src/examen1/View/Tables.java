@@ -14,6 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import examen1.Model.funciones;
+import java.awt.Color;
 
 
 public class Tables extends JFrame {
@@ -36,8 +37,9 @@ public class Tables extends JFrame {
     }
 
     public void initComponents() {
-        Layout GenericnsPanel = new Layout(600, 600, 4);
+        Layout GenericnsPanel = new Layout(1000, 1000, 4);
         GenericPanel.setSize(GenericnsPanel.setComponentDimension());
+        GenericPanel.setBackground(Color.ORANGE);
         setVisible(true);
         add(GenericPanel);
         pack();

@@ -35,7 +35,7 @@ public class ChatBox extends Thread {
      * Toma la fecha y le da el formto especificado
      *
      * @param
-     * @return la fecha actual con el formato especificado
+     * @return dateFormat la fecha actual con el formato especificado
      */
     public String getDate() {
         Date date = new Date();
@@ -43,6 +43,13 @@ public class ChatBox extends Thread {
 
         return dateFormat.format(date);
     }
+    
+       /**
+     * Toma la hora y le da el formto especificado
+     *
+     * @param
+     * @return dateFormat la hora actual con el formato especificado
+     */
        public String getTime() {
         Date date = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat("hh:mm:ss");

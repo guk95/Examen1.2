@@ -59,7 +59,7 @@ public class Createtable extends JFrame {
         generipanel.setRow(obj2);
         creartabla.setBounds(generipanel.getRectangle(140, 30));
         for (int i = 0; i < 15; i++) {
-            fields[i] = new JTextField("Your Value");
+            fields[i] = new JTextField("Name");
             comboBoxs[i] = new JComboBox(datos);
             Object[][] obj3
                     = {

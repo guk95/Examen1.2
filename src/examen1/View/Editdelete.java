@@ -5,6 +5,7 @@
  */
 package examen1.View;
 
+import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -83,7 +84,7 @@ public class Editdelete extends JFrame {
                 };
         nsPanel.setRow(obj3);
         delete.setBounds(nsPanel.getRectangle(140, 30));
-
+        GenericPanel.setBackground(Color.GREEN);
         GenericPanel.add(usingtablename);
         GenericPanel.add(editarset);
         GenericPanel.add(editarnuevo);

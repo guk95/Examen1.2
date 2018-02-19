@@ -5,6 +5,7 @@
  */
 package examen1.View;
 
+import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -40,10 +41,11 @@ public class Login extends JFrame {
 
     private void initComponents() {
 
-        Layout nsPanel = new Layout(300, 300, 4);
+        Layout nsPanel = new Layout(400, 450, 4);
+        
         Nombre.setBounds(nsPanel.getRectangle(140, 30));
-//        Nombre.setText("Username");
-//        Password.setText("Password");
+        Nombre.setText("Username");
+        Password.setText("Password");
         Password.setBounds(nsPanel.getRectangle(140, 30));
         Loguear.setBounds(nsPanel.getRectangle(140, 30));
         Loguear.setText("LogIn");
@@ -68,6 +70,7 @@ public class Login extends JFrame {
         GenericPanel.add(Displayname);
         GenericPanel.add(Passwordnew);
         GenericPanel.add(Registrar);
+        GenericPanel.setBackground(Color.MAGENTA);
         setVisible(true);
         add(GenericPanel);
         pack();

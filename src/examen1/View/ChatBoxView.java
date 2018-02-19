@@ -5,6 +5,7 @@
  */
 package examen1.View;
 
+import java.awt.Color;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -30,12 +31,13 @@ public class ChatBoxView extends JFrame {
     private void initComponents() {
 
         Layout nsPanel = new Layout(1000, 1000, 4);
-        chatArea.setBounds(nsPanel.getRectangle(500, 500));
+        chatArea.setBounds(nsPanel.getRectangle(1000, 500));
         chatArea.setEditable(false);
 
-        send_Message.setBounds(nsPanel.getRectangle(250, 250));
+        send_Message.setBounds(nsPanel.getRectangle(500, 150));
         GenericPanel.setLayout(nsPanel.getLayOut());
         GenericPanel.setSize(nsPanel.setComponentDimension());
+        GenericPanel.setBackground(Color.BLACK);
         GenericPanel.add(chatArea);
         GenericPanel.add(send_Message);
         setVisible(true);

@@ -45,7 +45,7 @@ public class Manager implements ActionListener {
                 login.dispose();
             } else {
 
-                JOptionPane.showMessageDialog(null, "Usuario incorrecto");
+                JOptionPane.showMessageDialog(null, "Usuario incorrecto o espacios en blanco");
             }
 
         }
@@ -57,6 +57,10 @@ public class Manager implements ActionListener {
     }
 
     public boolean ControllerLogIn() {
+        if(login.Nombre.getText().trim().compareTo("")==0
+                || login.Password.getText().trim().compareTo("")==0 ){
+        return false;
+        }
         if (loginModel.Login(login.Nombre.getText(), login.Password.getText())) {
             user.setDisplayname(loginModel.GetDisplay(login.Nombre.getText(), login.Password.getText()));
             return true;
