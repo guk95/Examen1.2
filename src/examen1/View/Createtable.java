@@ -34,6 +34,7 @@ public class Createtable extends JFrame {
     public Createtable() {
         
         this.layout = new Layout(1200, 1200, 4);
+        
         setTitle("Examen");
         setLayout(layout.getLayOut());
         setPreferredSize(layout.setComponentDimension());
@@ -49,6 +50,7 @@ public class Createtable extends JFrame {
         Layout generipanel = new Layout(1200, 1200, 25);
         GenericPanel.setLayout(generipanel.getLayOut());
         GenericPanel.setSize(generipanel.setComponentDimension());
+        GenericPanel.setBackground(Color.CYAN);
         Object[][] obj2
                 = {
                     {columnas, 160, 30, "Nombre Columna"},
@@ -70,6 +72,7 @@ public class Createtable extends JFrame {
             GenericPanel.add(fields[i]);
             GenericPanel.add(comboBoxs[i]);
         }
+        creartabla.setText("Crear tabla!");
         GenericPanel.add(tipodato);
         GenericPanel.add(columnas);
         GenericPanel.add(creartabla);

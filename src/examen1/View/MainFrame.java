@@ -6,8 +6,11 @@
 package examen1.View;
 
 import java.awt.Color;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -34,7 +37,7 @@ public class MainFrame extends JFrame {
     public JLabel nombretable = new JLabel();
     public JTextField nombretabletext = new JTextField();
     public JLabel numerodecolumnas = new JLabel();
-    public JTextField numerodecolumnastext = new JTextField();
+    public JFormattedTextField numerodecolumnastext = new JFormattedTextField(new Integer(2));
 
     public MainFrame() {
 
@@ -83,6 +86,21 @@ public class MainFrame extends JFrame {
         numerodecolumnas.setBounds(nsPanel.getRectangle(140, 30));
         numerodecolumnas.setText("Numero de columnas");
         numerodecolumnastext.setBounds(nsPanel.getRectangle(140, 30));
+        numerodecolumnastext.addKeyListener(new KeyAdapter()
+{
+   public void keyTyped(KeyEvent e)
+   {
+      char caracter = e.getKeyChar();
+
+      // Verificar si la tecla pulsada no es un digito
+      if(((caracter < '0') ||
+         (caracter > '9')) &&
+         (caracter != '\b' /*corresponde a BACK_SPACE*/))
+      {
+         e.consume();  // ignorar el evento de teclado
+      }
+   }
+});
         editarTablas.setVisible(false);
         tablas.setVisible(false);
         abrirtabla.setVisible(false);

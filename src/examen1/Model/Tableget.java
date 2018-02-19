@@ -17,8 +17,9 @@ public class Tableget {
     public Tableget() {
     }
 
-    public Tableget(String tablename) {
+    public Tableget(String tablename, int numero) {
         this.tablename = tablename;
+        this.numberofcolumns=numero;
     }
 
     public static String getTablename() {

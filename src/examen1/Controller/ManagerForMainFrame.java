@@ -14,6 +14,7 @@ import java.awt.event.ActionEvent;
 import examen1.Model.Tablas;
 import examen1.Model.Tableget;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -63,13 +64,21 @@ public class ManagerForMainFrame implements ActionListener {
         }
         if (mainFrame.crearTablas == evento.getSource()) {
             Tableget tableget = new Tableget();
-            tableget.setTablename(mainFrame.nombretable.getText());
-            tableget.setNumberofcolumns(Integer.parseInt(mainFrame.numerodecolumnastext.getText()));
-            Controllerforcreatetable controllerforcreatetable = new Controllerforcreatetable();
-            controllerforcreatetable.startcreatable();
-            mainFrame.editarTablas.setVisible(false);
-            mainFrame.tablas.setVisible(false);
-            mainFrame.abrirtabla.setVisible(false);
+
+            if (Integer.parseInt(mainFrame.numerodecolumnastext.getText()) > 15 ||
+          mainFrame.nombretabletext.getText().compareTo("")==0) {
+                JOptionPane.showMessageDialog(null, "Medio pereza y solo puse 15 espacios o escriba el nombre de la tabla ");
+
+            } else {
+                tableget.setTablename(mainFrame.nombretabletext.getText());
+                tableget.setNumberofcolumns(Integer.parseInt(mainFrame.numerodecolumnastext.getText()));
+                Controllerforcreatetable controllerforcreatetable = new Controllerforcreatetable();
+                controllerforcreatetable.startcreatable();
+                mainFrame.editarTablas.setVisible(false);
+                mainFrame.tablas.setVisible(false);
+                mainFrame.abrirtabla.setVisible(false);
+
+            }
 
         }
         if (mainFrame.editarTablas == evento.getSource()) {

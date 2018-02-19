@@ -25,8 +25,7 @@ public class ManagerForCreatetable implements ActionListener {
     public ManagerForCreatetable(Tablas tablas, Createtable createtable) {
         this.createtable = createtable;
         this.tablas = tablas;
-        controllerfordata();
-        controllercolectdata();
+        controllerfordata();        
         this.createtable.creartabla.addActionListener(this);
     }
 
@@ -40,14 +39,18 @@ public class ManagerForCreatetable implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent evento) {
+        if(createtable.creartabla==evento.getSource()){        
+        controllercolectdata();
+        }
     }
 
     public void controllercolectdata() {
         ArrayList data = new ArrayList();
         for (int i = 0; i < tableget.numberofcolumns; i++) {
-            data.add(createtable.fields[i]);
+            data.add(createtable.fields[i].getText());
             data.add(createtable.comboBoxs[i].getSelectedItem().toString());
-        }
+        }        
+        tablas.createTable(tableget.getTablename() , data);
 
     }
 

@@ -73,15 +73,15 @@ public class Tablas {
     public boolean createTable(String tablename, ArrayList columnasvariables) {
         ArrayList<Object> objs = new ArrayList<Object>();
         String query = "CREATE TABLE " + tablename + " (";
-        if (columnasvariables.size() > 3) {
-            for (int i = 0; i <= (columnasvariables.size() / 3); i = i + 3) {
+        if (columnasvariables.size() > 2) {
+            for (int i = 0; i <= (columnasvariables.size() / 2); i = i + 2) {
                 query = query + columnasvariables.get(i) + " " + columnasvariables.get(i + 1)
-                        + " (" + columnasvariables.get(i + 2) + ") NOT NULL, ";
+                        + " (6) NOT NULL, ";
             }
         }
-        query = query + columnasvariables.get(columnasvariables.size() - 3)
-                + " " + columnasvariables.get(columnasvariables.size() - 2)
-                + " (" + columnasvariables.get(columnasvariables.size() - 1) + ")  NOT NULL);";
+        query = query + columnasvariables.get(columnasvariables.size() - 2)
+                + " " + columnasvariables.get(columnasvariables.size() - 1)
+                + " (6)  NOT NULL);";
         try {
             LoginModel.sql.exec(query, objs);
         } catch (Exception e) {

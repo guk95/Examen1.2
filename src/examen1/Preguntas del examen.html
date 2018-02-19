@@ -1,1 +1,142 @@
 aqui van a ir las respuestas del examen 
+
+
+1.	¿Cómo definiría usted, un Sistema de Información? (2 pts.).
+
+
+Se trata de una union de las diferentes areas de la programacion , todas estan se acomplan para
+realizar una labor conjunto que es la administracion de los datos en un programa o sistema.
+
+2.	¿Qué explicación le da a usted a un Hilo, se puede apoyar mediante imágenes? (2 pts.).
+
+Un hilo es la ejecucion de un programa , esta ejecucion se realiza por debajo del sistema ,
+esto quiere decir que serviria para programar un reloj ya que este necesita estar cambiando cada segundo
+y gracias al hilo podemos correr esta ejecucion sin tener que preocuparnos por hacerlo manual.
+
+Cabe mencionar que un hilo por lo general es un proceso ligero y que se puede ejecutar en paralelo mientras
+lo hace otro programa sin afectar este
+
+3.	¿Cómo definiría un HASHMAP?, realice un ejemplo básico de HASHMAP (5 pts.).
+
+Se podria definir como un ArrayList ya que lleva la misma estructura interna, lo que hace 
+especial es que los datos dentro de este poseen un key , con lo que resulta mas facil y rapido acceder a 
+ellos
+
+    /* This is how to declare HashMap */
+      HashMap Integer, String> hmap = new HashMap Integer, String>();
+
+      /*Adding elements to HashMap*/
+      hmap.put(12, "Chaitanya");
+      hmap.put(2, "Rahul");
+      hmap.put(7, "Singh");
+      hmap.put(49, "Ajeet");
+      hmap.put(3, "Anuj");
+      
+      por ejemplo aca tenemos un hashMap  de String , si yo necesitara  el nombre de anuj 
+      en toda la estrucutra solo necesitaria pasarle la key que es 3 y el me lo devolveria
+
+4.	Con sus palabras defina y realice un ejemplo a nivel de HEIDISQL de: (8 pts.).
+
+a.	SQL – No requiere ejemplo
+
+Lenguaje de programacion el cual significa Structured Query Language, este lenguaje esta orientado 
+a trabajar con Bases de Datos y la manipulacion de datos.
+
+b.	PRIMARY KEY
+
+Atributo que se le asigna a una columna de una tabla, 
+dentro de esta columna no puede estar repetido el mismo dato ya que es unico y se utiliza como
+identificador
+
+PRIMARY KEY (`IdUser`)
+
+c.	CREATE TABLE
+
+Sentencia que se utiliza para crear una tabla en una base de datos , en esta se asignan los nombres
+de las columnas asi como el tipo de dato que representan , su extension y si pueden o no se nulos.
+
+CREATE TABLE `Examen_Mario_Login` (
+`IdUser` INT(11) NOT NULL AUTO_INCREMENT,
+`Username` VARCHAR(250) NOT NULL,
+`Password` VARCHAR(250) NOT NULL,
+`DisplayName` VARCHAR(250) NOT NULL,
+PRIMARY KEY (`IdUser`)
+)
+
+
+d.	DROP TABLE – No requiere ejemplo
+
+Sentencia que se utiliza para eliminar por completo una tabla de la base de datos
+
+e.	TRUNCATE TABLE – No requiere ejemplo
+
+Sentencia que se utliza para eliminar de forma rapida todas las filas de una tabla
+
+f.	SELECT
+
+Sentencia que se utiliza para consultar los espacios de una tabla segun lo que se le indique
+
+Select DisplayName
+from Examen_Mario_Login
+
+g.	UPDATE
+
+Sentencia que se utiliza para modificar una fila o espacio dentro de una tabla segun las condiciones 
+que se le indiquen
+
+Update Examen_Mario_Login
+set DisplayName= "Jose"
+
+h.	INSERT
+
+Se utiliza para insertar datos en la tabla.
+
+INSERT INTO `Examen_Mario_Login` 
+(`Username`,`Password`,`DisplayName` ) 
+VALUES ("Mario2","123","Mario")
+
+
+i.	DELETE
+
+Se utiliza para eliminar datos de la tabla segun la condicion que se le pida.
+
+delete 
+from Examen_Mario_Login
+where Username = "Username"
+
+
+j.	INNER JOIN
+
+Se utiliza para unir datos que esten en ambas tablas
+
+select Message
+from Examen_Mario_Login
+inner join ChatBox on Examen_Mario_Login.DisplayName
+= ChatBox.DisplayName
+
+5.	Con base al conocimiento adquirido en estas semanas de Programación III, 
+elabore un pequeño análisis de buenas prácticas en materia de SQL (Al menos 10 puntos)
+y su relación a Java. (8 pts.).
+
+1-Debe mantenerse un estandar al momento de nombrar tablas y columnas en la base de datos.
+
+2-Las tablas deben mantener un primaryKey para evitar que dos o mas datos iguales
+se introduzcan en la tablas.
+
+3-Tener claro cual debe ser el tipo de datos de las columnas y cuales deben ser null 
+y cuales necesitan datos no nulos
+
+4-Tener establecido los rangos de cada usuario de la base de datos 
+
+5- Tener triggers en la base de datos que alerten de los movimientos
+
+6- Separar la logica de la base de datos por un posible ataque
+
+7- Intentar prevenir el SQL injection
+
+8- Antes de de realizar un update importante tener siempre una copia de seguridad
+
+9- Siempre que se realice un query a la base de datos recordar el .close()
+
+10- A nivel de Big Data evitar utilizar el select * ya que esto consume demasiados
+recursos de la base de datos
