@@ -12,14 +12,12 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-
-
 /**
  *
  * @author Mario
  */
 public class MainFrame extends JFrame {
-    
+
     public Layout layout;
     public Layout Principal;
     public JPanel GenericPanel = new JPanel();
@@ -29,20 +27,21 @@ public class MainFrame extends JFrame {
     public JButton ChatBox = new JButton();
     public JButton verTablas = new JButton();
     public JButton crearTablas = new JButton();
+    public JButton editarTablas = new JButton();
     public JComboBox tablas = new JComboBox();
     public JButton abrirtabla = new JButton();
-    
+
     public MainFrame() {
-        
+
         this.layout = new Layout(800, 600, 4);
-        
+
         Object[][] obj1
                 = {
                     {Menu, 160, 600, 4},
                     {GenericPanel, 640, 600, 4}
                 };
         layout.setRow(obj1);
-        
+
         setTitle("Examen");
         setLayout(layout.getLayOut());
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -50,12 +49,11 @@ public class MainFrame extends JFrame {
         setResizable(false);
         initComponents();
     }
-    
+
     private void initComponents() {
-        
+
         Layout nsPanel = new Layout(160, 600, 4);
-        Layout generipanel = new Layout(600, 600, 100);
-        
+        Layout generipanel = new Layout(600, 600, 25);
         Menu.setLayout(nsPanel.getLayOut());
         Menu.setSize(nsPanel.setComponentDimension());
         Menu.setBackground(new Color(48, 44, 43));
@@ -72,6 +70,9 @@ public class MainFrame extends JFrame {
         ChatBox.setBounds(nsPanel.getRectangle(140, 30));
         crearTablas.setText("Crear Tablas");
         crearTablas.setBounds(nsPanel.getRectangle(140, 30));
+        editarTablas.setBounds(generipanel.getRectangle(140, 30));
+        editarTablas.setText("Editar Tabla");
+        editarTablas.setVisible(false);
         tablas.setVisible(false);
         abrirtabla.setVisible(false);
         Menu.add(verTablas);
@@ -80,6 +81,7 @@ public class MainFrame extends JFrame {
         GenericPanel.add(Clock);
         GenericPanel.add(tablas);
         GenericPanel.add(abrirtabla);
+        GenericPanel.add(editarTablas);
         add(Menu);
         pack();
         setVisible(true);
@@ -88,5 +90,5 @@ public class MainFrame extends JFrame {
         setVisible(true);
 
     }
-    
+
 }

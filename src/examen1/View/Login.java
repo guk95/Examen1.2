@@ -36,7 +36,6 @@ public class Login extends JFrame {
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         initComponents();
-
     }
 
     private void initComponents() {

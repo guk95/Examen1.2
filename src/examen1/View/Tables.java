@@ -22,11 +22,10 @@ public class Tables extends JFrame {
     public JPanel GenericPanel = new JPanel();
     public JTable mainTable;
     public JScrollPane scrollPane;
-    funciones FNC;
+
     Tableget tableget = new Tableget();
 
-    public Tables() {
-        this.FNC = new funciones();
+    public Tables() {    
         this.Principal = new Layout(1000, 1000, 4);
         setTitle("Tables");
         setLayout(Principal.getLayOut());

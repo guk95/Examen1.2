@@ -23,7 +23,6 @@ public class ManagerForMainFrame implements ActionListener {
 
     MainFrame mainFrame;
     ChatBox chatBox;
-    ChatBoxView boxView;
 
     public ManagerForMainFrame() {
 
@@ -36,17 +35,21 @@ public class ManagerForMainFrame implements ActionListener {
         this.mainFrame.ChatBox.addActionListener(this);
         this.mainFrame.verTablas.addActionListener(this);
         this.mainFrame.abrirtabla.addActionListener(this);
+        this.mainFrame.editarTablas.addActionListener(this);
+
     }
 
     public void actionPerformed(ActionEvent evento) {
 
         if (mainFrame.ChatBox == evento.getSource()) {
+            mainFrame.editarTablas.setVisible(false);
             mainFrame.tablas.setVisible(false);
             mainFrame.abrirtabla.setVisible(false);
             ControllerForChatBox controllerForChatBox = new ControllerForChatBox();
             controllerForChatBox.StartControllerForChatBox();
         }
         if (mainFrame.verTablas == evento.getSource()) {
+            mainFrame.editarTablas.setVisible(true);
             controllerllenarCombobox();
             mainFrame.tablas.setVisible(true);
             mainFrame.abrirtabla.setVisible(true);
@@ -58,19 +61,26 @@ public class ManagerForMainFrame implements ActionListener {
             controllerTables.StartTables();
         }
         if (mainFrame.crearTablas == evento.getSource()) {
+            mainFrame.editarTablas.setVisible(false);
             mainFrame.tablas.setVisible(false);
             mainFrame.abrirtabla.setVisible(false);
 
+        }
+        if (mainFrame.editarTablas == evento.getSource()) {
+            Tableget tableget = new Tableget();
+            tableget.setTablename(mainFrame.tablas.getSelectedItem().toString());
+            Controllerforeditdelete controllerforeditdelete = new Controllerforeditdelete();
+            controllerforeditdelete.startedit();
         }
 
     }
 
     public void controllerllenarCombobox() {
         Tablas tablas = new Tablas();
-        ArrayList asd = new ArrayList();
-        asd = tablas.nombresTablas();
-        for (int i = 0; i < asd.size(); i++) {
-            mainFrame.tablas.addItem(asd.get(i));
+        ArrayList nombretablas = new ArrayList();
+        nombretablas= tablas.nombresTablas();
+        for (int i = 0; i < nombretablas.size(); i++) {
+            mainFrame.tablas.addItem(nombretablas.get(i));
         }
 
     }
